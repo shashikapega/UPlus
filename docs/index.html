@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="favicon.ico">
+  <title>Uplus Application</title>
+  <meta name="description"
+    content="The Uplus application showcases how a web application can be integrated with the Pega Platform around Mashup, Web-Embed, Co-Browse, Pega chat and Knowledge Management as well as with Customer Decision Hub for offers and realtime streams." />
+  <meta name="author" content="Pega Front-end Team" />
+  <meta itemprop="name" content="Uplus Application" />
+  <meta itemprop="image" content="https://pegasystems.github.io/uplus-wss/img/uplus-view.png" />
+
+  <meta property="og:title" content="Uplus Application" />
+  <meta property="og:description"
+    content="The Uplus application showcases how a web application can be integrated with the Pega Platform around Mashup, Web-Embed, Co-Browse, Pega chat and Knowledge Management as well as with Customer Decision Hub for offers and realtime streams." />
+  <meta property="og:url" content="https://pegasystems.github.io/uplus-wss/" />
+  <meta property="og:image" content="https://pegasystems.github.io/uplus-wss/img/uplus-view.png" />
+  <meta property="og:site_name" content="Uplus Application" />
+  <meta property="og:type" content="article" />
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('./fonts/Inter-Normal.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: border-box;
+    }
+
+    body {
+      font: 16px/1.2 'Inter', sans-serif;
+      padding: 14px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .card-grid {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-gap: 24px;
+    }
+
+    li {
+      background: #FFF;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .card-grid a:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 20px;
+      border: 3px solid rgba(0, 0, 0, .2);
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, .2);
+    }
+
+    a:focus,
+    a:hover,
+    a:active {
+      outline: none;
+    }
+
+    .card-grid a:focus:after,
+    .card-grid a:hover:after,
+    .card-grid a:active:after {
+      box-shadow: none;
+      border-color: #295ed9;
+    }
+
+    p {
+      color: #050505;
+      font-size: 18px;
+      padding: 14px;
+      margin: 0;
+      text-align: center;
+    }
+
+    img {
+      margin: 14px 14px 7px 14px;
+      height: 26px;
+    }
+
+    .image>div {
+      flex: 1;
+    }
+
+    @media (min-width: 650px) and (max-width: 1300px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1300px) and (max-width: 1950px) {
+      .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1950px) and (max-width: 2600px) {
+      .card-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    @media (min-width: 2600px) {
+      .card-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+    }
+
+    .card-1 {
+      background: url('./retail_bank/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-1>div {
+      background: url('./retail_bank/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-2 {
+      background: url('./commercial_bank/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-2>div {
+      background: url('./commercial_bank/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-3 {
+      background: url('./comms/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-3>div {
+      background: url('./comms/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-4 {
+      background: url('./insurance/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-4>div {
+      background: url('./insurance/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-5 {
+      background: url('./health_payer/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-5>div {
+      background: url('./health_payer/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-6 {
+      background: url('./health_provider/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-6>div {
+      background: url('./health_provider/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-7 {
+      background: url('./health_care/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-7>div {
+      background: url('./health_care/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-8 {
+      background: url('./health_pharma/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-8>div {
+      background: url('./health_pharma/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-9 {
+      background: url('./gov/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-9>div {
+      background: url('./gov/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-10 {
+      background: url('./manufacturing/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-10>div {
+      background: url('./manufacturing/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-11 {
+      background: url('./auto/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-11>div {
+      background: url('./auto/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-12 {
+      background: url('./wealth/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-12>div {
+      background: url('./wealth/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-13 {
+      background: url('./travel/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-13>div {
+      background: url('./travel/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .card-14 {
+      background: url('./energy/img/hero-1.svg') 100% 0 no-repeat;
+    }
+
+    .card-14>div {
+      background: url('./energy/img/Hero.webp') 100% 100% / contain no-repeat;
+    }
+
+    .image {
+      min-height: 200px;
+      display: flex;
+      justify-items: center;
+      flex-flow: column;
+      background-size: contain;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Uplus Application</h1>
+    <p class='description'>The Uplus application is a typical web application built as a Progressive Web Application
+      (PWA) with one of the latest framework (Vue.js). It showcases how a Single Page Application (SPA) can be
+      integrated with the Pega Platform around Mashup, Web-Embed, Co-Browse, Pega chat and Knowledge Management as well
+      as with
+      Customer Decision Hub for offers and realtime streams. It demonstrates how these technologies can be integrated
+      with a typical consumer grade web application to provide a seamingless experience and interaction. The source code
+      is available on <a href='https://github.com/pegasystems/uplus-wss'>github</a>.</p>
+    <ul class="card-grid">
+      <li>
+        <a aria-label="Retail banking" aria-describedby="card-1" href="./retail_bank/index.html">
+          <img alt='' src='./retail_bank/img/u+-logo.svg' />
+          <div class='image card-1'>
+            <div></div>
+          </div>
+          <p id='card-1'>Retail Banking</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Commercial Banking" aria-describedby="card-2" href="./commercial_bank/index.html">
+          <img alt='' src='./commercial_bank/img/u+-logo.svg' />
+          <div class='image card-2'>
+            <div></div>
+          </div>
+          <p id='card-2'>Commercial Banking</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Communications" aria-describedby="card-3" href="./comms/index.html">
+          <img alt='' src='./comms/img/u+-logo.svg' />
+          <div class='image card-3'>
+            <div></div>
+          </div>
+          <p id='card-3'>Communications</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Insurance" aria-describedby="card-4" href="./insurance/index.html">
+          <img alt='' src='./insurance/img/u+-logo.svg' />
+          <div class='image card-4'>
+            <div></div>
+          </div>
+          <p id='card-4'>Insurance</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="U+ Health for members" aria-describedby="card-5" href="./health_payer/index.html">
+          <img alt='' src='./health_payer/img/u+-logo.svg' />
+          <div class='image card-5'>
+            <div></div>
+          </div>
+          <p id='card-5'>Health plans for members</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="U+ Health for providers" aria-describedby="card-6" href="./health_provider/index.html">
+          <img alt='' src='./health_provider/img/u+-logo.svg' />
+          <div class='image card-6'>
+            <div></div>
+          </div>
+          <p id='card-6'>Health plans for providers</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Health systems for patients" aria-describedby="card-7" href="./health_care/index.html">
+          <img alt='' src='./health_care/img/u+-logo.svg' />
+          <div class='image card-7'>
+            <div></div>
+          </div>
+          <p id='card-7'>Health systems for patients</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Life science for patients" aria-describedby="card-8" href="./health_pharma/index.html">
+          <img alt='' src='./health_pharma/img/u+-logo.svg' />
+          <div class='image card-8'>
+            <div></div>
+          </div>
+          <p id='card-8'>Life science for patients</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Government for constituants" aria-describedby="card-9" href="./gov/index.html">
+          <img alt='' src='./gov/img/u+-logo.svg' />
+          <div class='image card-9'>
+            <div></div>
+          </div>
+          <p id='card-9'>Government for constituants</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Manufacturing and technology" aria-describedby="card-10" href="./manufacturing/index.html">
+          <img alt='' src='./manufacturing/img/u+-logo.svg' />
+          <div class='image card-10'>
+            <div></div>
+          </div>
+          <p id='card-10'>Manufacturing and technology</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Auto" aria-describedby="card-11" href="./auto/index.html">
+          <img alt='' src='./auto/img/u+-logo.svg' />
+          <div class='image card-11'>
+            <div></div>
+          </div>
+          <p id='card-11'>Auto</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Wealth Manager" aria-describedby="card-12" href="./wealth/index.html">
+          <img alt='' src='./wealth/img/u+-logo.svg' />
+          <div class='image card-12'>
+            <div></div>
+          </div>
+          <p id='card-12'>Wealth Management</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Travel" aria-describedby="card-13" href="./travel/index.html">
+          <img alt='' src='./travel/img/u+-logo.svg' />
+          <div class='image card-13'>
+            <div></div>
+          </div>
+          <p id='card-13'>Travel services</p>
+        </a>
+      </li>
+      <li>
+        <a aria-label="Energy" aria-describedby="card-14" href="./energy/index.html">
+          <img alt='' src='./energy/img/u+-logo.svg' />
+          <div class='image card-14'>
+            <div></div>
+          </div>
+          <p id='card-14'>Energy services</p>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+
+</html>

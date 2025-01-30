@@ -1,0 +1,72 @@
+/* Color and decoration. */
+body,
+.hero-main {
+  background: #f7f7f7;
+}
+.highlight-main {
+  background: #FFF;
+}
+a,
+a:visited {
+  color: var(--interactiveColor);
+}
+
+a.decorated,
+a.decorated:visited {
+  border-bottom-color: var(--interactiveColor);
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+
+.mashup-main  {
+  background:#FFF;
+  padding-top:24px;
+}
+
+.content-card {
+  background: #FFF;
+  border: 1px solid #d5d5d5;
+}
+
+.primary-card {
+  background: #FFF;
+}
+
+.secondary-card {
+  background: #FFF;
+  border: 0.5px solid rgba(0,0,0,0.2);
+}
+
+.content-card.fatlist,
+.content-card.offer-card {
+  padding: 0;
+}
+
+.trend-error {
+  color: #ff0900e6;
+  font-weight: 700;
+}
+
+.pi.pi-error {
+  color: #ff0900e6;
+  font-weight: 700 !important;
+}
+
+.trend-success {
+  color: #3c8712;
+  font-weight: 700;
+}
+
+.pi.pi-success {
+  color: #3c8712;
+  font-weight: 700 !important;
+}
+
+.success-text {
+  font-size: 40px;
+  color: #3C8712;
+}

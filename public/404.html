@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>WSS Uplus application</title>
+  <script type="text/javascript">
+    var l = window.location;
+    var segmentCount = 2;
+    if (window.history) {
+      var curstate = window.history.state;
+      if (curstate === null) curstate = {};
+      curstate.page = l.pathname.split('/').slice(1 + segmentCount).join('/');
+      window.history.replaceState(
+        curstate,
+        '',
+        'index.html' + window.location.search,
+      );
+      location.reload(true);
+    }
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
