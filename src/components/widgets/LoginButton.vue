@@ -46,6 +46,9 @@
       }}</span>
       <a>{{ $t('message.forgotPassword') }}</a>
       <a>{{ $t('message.notEnrolled') }}</a>
+       <button v-else v-on:click="getstarted" class="strong getstarted">
+        {{ $t('message.notEnrolled') }}
+      </button>
     </div>
   </div>
 </template>
