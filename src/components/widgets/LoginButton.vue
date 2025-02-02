@@ -45,7 +45,7 @@
         $t('message.requestOTPFailed')
       }}</span>
       <a>{{ $t('message.forgotPassword') }}</a>
-      <a>{{ $t('message.notEnrolled') }}</a>
+     
     </div>
   </div>
 </template>
