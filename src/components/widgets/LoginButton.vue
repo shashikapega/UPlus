@@ -44,8 +44,8 @@
       <span v-if="OTPRequestFailed" class="error">{{
         $t('message.requestOTPFailed')
       }}</span>
-     
-      </button>
+      <a>{{ $t('message.forgotPassword') }}</a>
+      <a>{{ $t('message.notEnrolled') }}</a>
     </div>
   </div>
 </template>
